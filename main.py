@@ -28,8 +28,8 @@ def main_menu():
 
         PLAY_BUTTON = Button(image=pygame.image.load("./assets/Button.png"), pos=((width/2 - 80), 550), 
                                 text_input="PLAY", font=text_font, base_color="#d7fcd4", hovering_color="White")
-        OPTIONS_BUTTON = Button(image=pygame.image.load("./assets/Button.png"), pos=((width - 250), (height - 100)), 
-                                text_input="OPTIONS", font=text_font, base_color="#d7fcd4", hovering_color="White")
+        OPTIONS_BUTTON = Button(image=pygame.image.load("./assets/Options.png"), pos=((width - 125), (height - 100)), 
+                                text_input="", font=text_font, base_color="#d7fcd4", hovering_color="White")
         QUIT_BUTTON = Button(image=pygame.image.load("./assets/Button.png"), pos=((width/2 - 80), 750), 
                                 text_input="QUIT", font=text_font, base_color="#d7fcd4", hovering_color="White")    
         MENU_MOUSE_POS = pygame.mouse.get_pos()
