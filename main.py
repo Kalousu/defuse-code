@@ -1,4 +1,5 @@
 import pygame
+from Button import Button
 
 pygame.init()
 
@@ -10,13 +11,15 @@ print(width, height)
 
 clock = pygame.time.Clock()
 
-text_font = pygame.font.SysFont("Arial", 30)
+text_font = pygame.font.SysFont("Arial", 50)
 
 def main_menu():
     MENU_MOUSE_POS = pygame.mouse.get_pos()
 
     MENU_TEXT = text_font.render("Main Menu", True, "#ffffff")
     MENU_RECT = MENU_TEXT.get_rect(center=((width / 2), 100))
+
+
 
     while True:
         for event in pygame.event.get():
