@@ -3,14 +3,14 @@ from Button import Button
 
 pygame.init()
 
-screen = pygame.display.set_mode()
+screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 size = pygame.display.get_window_size()
 width = size[0]
 height = size[1]
 print(width, height)
 
 imp = pygame.image.load("./assets/Bild.jpeg").convert()
-imp = pygame.transform.scale(imp, (1440,934))
+imp = pygame.transform.scale(imp, (1710,1107))
 
 clock = pygame.time.Clock()
 
@@ -26,11 +26,11 @@ def main_menu():
         MENU_RECT1 = MENU_TEXT1.get_rect(center=(150, 100))
         MENU_RECT2 = MENU_TEXT2.get_rect(center=(115, 180))
 
-        PLAY_BUTTON = Button(image=pygame.image.load("./assets/Button.png"), pos=((width/2), 250), 
+        PLAY_BUTTON = Button(image=pygame.image.load("./assets/Button.png"), pos=((width/2 - 80), 550), 
                                 text_input="PLAY", font=text_font, base_color="#d7fcd4", hovering_color="White")
-        OPTIONS_BUTTON = Button(image=pygame.image.load("./assets/Button.png"), pos=((width/2), 450), 
+        OPTIONS_BUTTON = Button(image=pygame.image.load("./assets/Button.png"), pos=((width - 250), (height - 100)), 
                                 text_input="OPTIONS", font=text_font, base_color="#d7fcd4", hovering_color="White")
-        QUIT_BUTTON = Button(image=pygame.image.load("./assets/Button.png"), pos=((width/2), 650), 
+        QUIT_BUTTON = Button(image=pygame.image.load("./assets/Button.png"), pos=((width/2 - 80), 750), 
                                 text_input="QUIT", font=text_font, base_color="#d7fcd4", hovering_color="White")    
         MENU_MOUSE_POS = pygame.mouse.get_pos()
         
