@@ -55,9 +55,9 @@ def main_menu():
                 raise SystemExit
             if event.type == pygame.MOUSEBUTTONDOWN:
                     if PLAY_BUTTON.checkForInput(MENU_MOUSE_POS):
-                        print("HI")
+                        game_selection()
                     if OPTIONS_BUTTON.checkForInput(MENU_MOUSE_POS):
-                        print("Hi")
+                        options_selection()
                     if QUIT_BUTTON.checkForInput(MENU_MOUSE_POS):
                         pygame.quit()
                         raise SystemExit
@@ -65,8 +65,66 @@ def main_menu():
 
         # Render the graphics here.
         # ...
+    
 
         pygame.display.flip()  # Refresh on-screen display
         clock.tick(60)         # wait until next frame (at 60 FPS)
+
+
+
+def game_selection(): # Function called upon selecting play in main menu
+        while True:
+            GAMESELECTION_MOUSE_POS = pygame.mouse.get_pos()
+
+            GAMESELECTION_TEXT = text_font.render("Game Selection", True, "#ffffff")
+            GAMESELECTION_RECT = GAMESELECTION_TEXT.get_rect(center=((width / 2), 100))
+
+            GAMESELECTION_QUIT_BUTTON = Button(image=pygame.image.load("./assets/Button.png"), pos=((width/2 - 80), 750), 
+                                text_input="QUIT", font=text_font, base_color="#d7fcd4", hovering_color="White")
+
+            
+            
+            screen.fill("black")
+            screen.blit(GAMESELECTION_TEXT, GAMESELECTION_RECT)
+            GAMESELECTION_QUIT_BUTTON.changeColor(GAMESELECTION_MOUSE_POS)
+            GAMESELECTION_QUIT_BUTTON.update(screen)
+            
+
+            for event in pygame.event.get():
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                     if GAMESELECTION_QUIT_BUTTON.checkForInput(GAMESELECTION_MOUSE_POS):
+                        main_menu()
+                        
+                     
+            pygame.display.update()
+
+
+
+def options_selection(): # Function called upon selecting options in main menu
+        while True:
+            GAMESELECTION_MOUSE_POS = pygame.mouse.get_pos()
+
+            GAMESELECTION_TEXT = text_font.render("Options", True, "#ffffff")
+            GAMESELECTION_RECT = GAMESELECTION_TEXT.get_rect(center=((width / 2), 100))
+
+            GAMESELECTION_QUIT_BUTTON = Button(image=pygame.image.load("./assets/Button.png"), pos=((width/2 - 80), 750), 
+                                text_input="QUIT", font=text_font, base_color="#d7fcd4", hovering_color="White")
+
+            
+            
+            screen.fill("black")
+            screen.blit(GAMESELECTION_TEXT, GAMESELECTION_RECT)
+            GAMESELECTION_QUIT_BUTTON.changeColor(GAMESELECTION_MOUSE_POS)
+            GAMESELECTION_QUIT_BUTTON.update(screen)
+            
+
+            for event in pygame.event.get():
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                     if GAMESELECTION_QUIT_BUTTON.checkForInput(GAMESELECTION_MOUSE_POS):
+                        main_menu()
+                        
+                     
+            pygame.display.update()
+                     
 
 main_menu()
